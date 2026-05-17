@@ -122,7 +122,7 @@
         <div class="mx-auto max-w-4xl px-4 text-center relative z-10">
             <!-- Insignia del curso -->
             <span class="inline-flex items-center gap-1.5 rounded-full bg-marca-oroSuave px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-marca-oro">
-                <i class="fa-solid fa-graduation-cap"></i> Proyecto de Religión • 6.º de Primaria
+                <i class="fa-solid fa-graduation-cap"></i> Colegio Divino Pastor de Cieza • 6.º de Primaria
             </span>
 
             <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-marca-cabecera sm:text-6xl font-kids leading-tight">
@@ -168,7 +168,7 @@
                             ¿Por qué creamos esta página?
                         </h2>
                         <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
-                            ¡Hola! Somos <strong>Eva</strong> y <strong>Sofía</strong>. Hemos creado este sitio web como un proyecto especial para nuestra clase de Religión. Nuestro objetivo es explicar, de forma muy sencilla y divertida, cómo celebra la Iglesia Católica las fiestas más importantes del año en España. Queremos que otros niños y niñas de nuestra edad puedan entender qué significan estas fechas tan bonitas que celebramos en familia y con nuestra comunidad. ¡Acompáñanos en este viaje por el año litúrgico!
+                            ¡Hola! Somos <strong>Eva</strong> y <strong>Sofía</strong>, alumnas del <strong>Colegio Divino Pastor de Cieza</strong>. Hemos creado este sitio web como un proyecto especial para nuestra clase de Religión. Nuestro objetivo es explicar, de forma muy sencilla y divertida, cómo celebra la Iglesia Católica las fiestas más importantes del año en España, incluyendo una tradición muy especial de nuestro querido pueblo de Cieza. Queremos que otros niños y niñas de nuestra edad puedan entender qué significan estas fechas tan bonitas que celebramos en familia y con nuestra comunidad. ¡Acompáñanos en este viaje por el año litúrgico!
                         </p>
                     </div>
                 </div>
@@ -281,6 +281,23 @@
                     </button>
                 </div>
 
+                <!-- Fiesta 6: San Bartolomé (Patrón de Cieza) -->
+                <div class="group relative rounded-3xl border border-amber-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-oroSuave text-marca-oro">
+                            <i class="fa-solid fa-shield-halved text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">San Bartolomé</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-oro uppercase tracking-wider">24 de Agosto (Fiesta en Cieza)</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Conoce la historia del apóstol de Jesús y la increíble leyenda medieval de "la mano mudá" que salvó a nuestro pueblo de Cieza.
+                        </p>
+                    </div>
+                    <button onclick="openModal('sanbartolome')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-oroSuave/60 px-4 py-2.5 text-sm font-bold text-marca-oro hover:bg-marca-oro hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -295,7 +312,7 @@
                     <i class="fa-solid fa-user-group"></i> Equipo de Trabajo
                 </span>
                 <h2 class="mt-4 text-3xl font-bold text-marca-cabecera font-kids">Conoce a las Autoras</h2>
-                <p class="mt-2 text-slate-600">Somos dos alumnas de 6.º de Primaria que nos divertimos muchísimo creando juntas.</p>
+                <p class="mt-2 text-slate-600">Somos dos alumnas de 6.º de Primaria del <strong>Colegio Divino Pastor de Cieza</strong> y nos divertimos muchísimo creando juntas.</p>
             </div>
 
             <!-- Grid de perfiles -->
@@ -335,7 +352,7 @@
     <footer class="mt-auto border-t border-amber-100/60 bg-marca-crema py-8">
         <div class="mx-auto max-w-6xl px-4 text-center">
             <p class="text-sm text-slate-500 font-kids">
-                © 2026 • Creado con ❤️ por Eva V.L. y Sofía V.L. para la clase de Religión.
+                © 2026 • Creado con ❤️ por Eva V.L. y Sofía V.L. para el Colegio Divino Pastor de Cieza.
             </p>
             <p class="mt-1.5 text-xs text-slate-400">
                 Diseñado de forma limpia y moderna con Tailwind CSS. Funciona de manera nativa en GitHub Pages.
@@ -479,6 +496,18 @@
                 desc: "Santiago el Mayor fue uno de los apóstoles y de los amigos más cercanos de Jesús. Viajó por tierra y mar hasta España para llevar el mensaje de Jesús a todas partes. Por su valentía e historia, es el **Patrón de España** y un gran ejemplo de fe y aventura.",
                 spain: "El 25 de julio es un día festivo nacional. Lo más increíble es el <strong>Camino de Santiago</strong>: millones de peregrinos de todas las edades e idiomas caminan durante semanas cruzando valles y montañas hasta llegar a la Catedral de Santiago de Compostela en Galicia, donde se conservan sus reliquias.",
                 funfact: "Los peregrinos llevan siempre atada a su mochila una <strong>concha de vieira</strong>. Esta concha es el símbolo oficial de Santiago y del Camino. Hace muchos años servía además para que los peregrinos bebieran agua en los manantiales."
+            },
+            sanbartolome: {
+                title: "San Bartolomé (Patrón de Cieza)",
+                date: "24 de Agosto (¡Fiesta Local!)",
+                color: "oro",
+                bgHeader: "bg-amber-500",
+                bgIcon: "bg-amber-50 text-amber-600 border border-amber-100",
+                btnBg: "bg-amber-600 hover:bg-amber-700 shadow-amber-600/10",
+                icon: "<i class='fa-solid fa-shield-halved'></i>",
+                desc: "San Bartolomé (también conocido en los Evangelios como Natanael) fue uno de los <strong>doce apóstoles</strong> y mejores amigos de Jesús. Tras la resurrección de Jesús, viajó valientemente por Oriente predicando la fe cristiana. Lamentablemente, fue ejecutado cruelmente por defender a Jesús: fue desollado vivo y decapitado. En el arte sacro se le representa con un escudo o espada de protección y a menudo con un demonio encadenado a sus pies, mostrando que el amor y el bien vencen siempre al mal.",
+                spain: "En nuestro querido pueblo, <strong>Cieza (Murcia)</strong>, lo celebramos por todo lo alto en agosto. Es nuestro protector definitivo debido a una maravillosa leyenda medieval: en el siglo XV, cuando las tropas granadinas intentaron asaltar la villa, los vecinos se refugiaron y rezaron con fe a su imagen en la ermita. ¡Andando sucedió un prodigio! La estatua del santo <strong>cambió milagrosamente su brazo de posición</strong>, levantando el brazo donde sostenía el cuchillo de su martirio para señalar y amenazar a los atacantes. Estos se asustaron tanto al ver el milagro que se retiraron, salvando a Cieza.",
+                funfact: "Por este milagro medieval, en Cieza se le conoce cariñosamente en la cultura popular como <strong>'San Bartolomé el de la mano mudá'</strong> (la mano cambiada). ¡Es una historia súper famosa en nuestro pueblo que nos llena de orgullo!"
             }
         };
 
