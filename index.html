@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Las Fiestas de la Iglesia Católica en España - Proyecto Escolar</title>
+    
+    <!-- Meta etiquetas SEO básicas -->
+    <meta name="description" content="Un sitio web educativo creado por Eva y Sofía (6.º de Primaria) para dar a conocer las celebraciones litúrgicas más importantes de la Iglesia Católica en España.">
+    <meta name="author" content="Eva V.L. y Sofía V.L.">
+    
+    <!-- Google Fonts: Fredoka (redondeada e infantil) y Outfit (elegante y moderna) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome para iconos atractivos y limpios -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuración personalizada de Tailwind CSS -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        marca: {
+                            crema: '#FAF8F5',      // Fondo cálido premium
+                            oro: '#D97706',         // amber-600
+                            oroSuave: '#FEF3C7',    // amber-100
+                            cielo: '#0EA5E9',       // sky-500
+                            cieloSuave: '#E0F2FE',  // sky-100
+                            esperanza: '#10B981',   // emerald-500
+                            esperanzaSuave: '#D1FAE5', // emerald-100
+                            purpura: '#8B5CF6',     // violet-500
+                            purpuraSuave: '#EDE9FE', // violet-100
+                            coral: '#F43F5E',       // rose-500
+                            coralSuave: '#FFE4E6',  // rose-100
+                            texto: '#334155',        // slate-700
+                            cabecera: '#1E293B'      // slate-800
+                        }
+                    },
+                    fontFamily: {
+                        fredoka: ['Fredoka', 'sans-serif'],
+                        outfit: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Tipografías asignadas de forma global */
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+        h1, h2, h3, .font-kids {
+            font-family: 'Fredoka', sans-serif;
+        }
+        
+        /* Micro-animación de flotación suave */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-marca-crema text-marca-texto min-h-screen flex flex-col antialiased">
+
+    <!-- ─── CABECERA / NAVBAR (Efecto Glassmorphism) ─── -->
+    <header class="sticky top-0 z-40 w-full border-b border-amber-100/50 bg-white/75 backdrop-blur-md transition-all duration-300">
+        <div class="mx-auto flex max-w-6xl items-center justify-between p-4">
+            <!-- Logotipo del Proyecto -->
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="flex h-10 w-10 items-center justify-center rounded-full bg-marca-oroSuave text-marca-oro transition-transform group-hover:rotate-12">
+                    <i class="fa-solid fa-church text-lg"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-marca-cabecera font-kids">
+                    Nuestras <span class="text-marca-oro">Fiestas</span>
+                </span>
+            </a>
+
+            <!-- Menú de Navegación -->
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#objetivo" class="text-sm font-medium hover:text-marca-oro transition-colors">Nuestro Objetivo</a>
+                <a href="#fiestas" class="text-sm font-medium hover:text-marca-oro transition-colors">Las Fiestas</a>
+                <a href="#autoras" class="text-sm font-medium hover:text-marca-oro transition-colors">Sobre Nosotras</a>
+                <a href="#fiestas" class="inline-flex items-center gap-2 rounded-full bg-marca-oro px-4  py-2 text-sm font-semibold text-white shadow-sm hover:bg-amber-700 hover:shadow-md transition-all">
+                    <i class="fa-solid fa-compass"></i> Explorar
+                </a>
+            </nav>
+
+            <!-- Botón de Navegación para Móviles -->
+            <button id="mobile-menu-btn" class="md:hidden flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition-colors">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white p-4 space-y-3">
+            <a href="#objetivo" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-marca-oro transition-colors">Nuestro Objetivo</a>
+            <a href="#fiestas" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-marca-oro transition-colors">Las Fiestas</a>
+            <a href="#autoras" class="block rounded-lg px-3 py-2 text-base font-medium text-slate-700 hover:bg-amber-50 hover:text-marca-oro transition-colors">Sobre Nosotras</a>
+        </div>
+    </header>
+
+    <!-- ─── SECCIÓN HERO (Presentación Principal) ─── -->
+    <section class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-amber-50/60 via-white to-marca-crema">
+        <!-- Decoraciones Flotantes Suaves -->
+        <div class="absolute top-12 left-10 text-marca-oro/10 text-6xl float-animation hidden lg:block" style="animation-delay: 0s;">
+            <i class="fa-solid fa-sun"></i>
+        </div>
+        <div class="absolute bottom-16 right-20 text-marca-cielo/10 text-7xl float-animation hidden lg:block" style="animation-delay: 2s;">
+            <i class="fa-solid fa-dove"></i>
+        </div>
+
+        <div class="mx-auto max-w-4xl px-4 text-center relative z-10">
+            <!-- Insignia del curso -->
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-marca-oroSuave px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-marca-oro">
+                <i class="fa-solid fa-graduation-cap"></i> Proyecto de Religión • 6.º de Primaria
+            </span>
+
+            <h1 class="mt-6 text-4xl font-extrabold tracking-tight text-marca-cabecera sm:text-6xl font-kids leading-tight">
+                Las Fiestas de la <span class="text-marca-oro relative inline-block">
+                    Iglesia Católica
+                    <svg class="absolute -bottom-2 left-0 h-2 w-full text-marca-oro/30" viewBox="0 0 100 10" preserveAspectRatio="none" fill="currentColor"><path d="M0 5c30-5 70 5 100 0v5H0z"/></svg>
+                </span>
+                en España
+            </h1>
+
+            <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                ¡Bienvenido! Ven a conocer el significado de las celebraciones más bonitas, alegres e importantes que compartimos en familia y con la comunidad cristiana a lo largo del año.
+            </p>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <a href="#fiestas" class="inline-flex items-center gap-2 rounded-full bg-marca-oro px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-amber-600/20 hover:bg-amber-700 hover:shadow-xl hover:-translate-y-0.5 transition-all">
+                    <i class="fa-solid fa-calendar-days"></i> ¡Empezar a Aprender!
+                </a>
+                <a href="#objetivo" class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-7 py-3.5 text-base font-bold text-slate-700 hover:bg-slate-50 transition-all">
+                    Ver Objetivo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECCIÓN 1: NUESTRO OBJETIVO ─── -->
+    <section id="objetivo" class="py-16 bg-white border-y border-amber-100/50">
+        <div class="mx-auto max-w-4xl px-4">
+            <div class="rounded-3xl bg-gradient-to-r from-marca-oroSuave/30 to-marca-cieloSuave/30 p-8 md:p-12 shadow-sm border border-amber-100/40 relative overflow-hidden">
+                <!-- Icono de comillas gigante decorativo -->
+                <div class="absolute -right-4 -bottom-4 text-marca-oro/5 text-9xl">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                    <!-- Icono circular grande -->
+                    <div class="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white text-marca-oro shadow-md shadow-amber-600/5">
+                        <i class="fa-solid fa-lightbulb text-3xl"></i>
+                    </div>
+
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold text-marca-cabecera font-kids">
+                            ¿Por qué creamos esta página?
+                        </h2>
+                        <p class="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
+                            ¡Hola! Somos <strong>Eva</strong> y <strong>Sofía</strong>. Hemos creado este sitio web como un proyecto especial para nuestra clase de Religión. Nuestro objetivo es explicar, de forma muy sencilla y divertida, cómo celebra la Iglesia Católica las fiestas más importantes del año en España. Queremos que otros niños y niñas de nuestra edad puedan entender qué significan estas fechas tan bonitas que celebramos en familia y con nuestra comunidad. ¡Acompáñanos en este viaje por el año litúrgico!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECCIÓN 2: EL EXPLORADOR INTERACTIVO DE FIESTAS ─── -->
+    <section id="fiestas" class="py-16 md:py-24 bg-marca-crema">
+        <div class="mx-auto max-w-6xl px-4">
+            
+            <!-- Cabecera de la sección -->
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="inline-flex items-center gap-1 rounded-full bg-marca-cieloSuave px-3 py-1 text-xs font-bold uppercase tracking-wider text-marca-cielo">
+                    <i class="fa-solid fa-compass"></i> El Calendario Litúrgico
+                </span>
+                <h2 class="mt-4 text-3xl md:text-4xl font-bold text-marca-cabecera font-kids">
+                    Descubre las Grandes Celebraciones
+                </h2>
+                <p class="mt-4 text-slate-600">
+                    Haz clic en cada tarjeta para conocer su historia, las tradiciones tan bonitas que tenemos en España y algunas curiosidades divertidas.
+                </p>
+            </div>
+
+            <!-- Malla de tarjetas de fiestas -->
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                
+                <!-- Fiesta 1: Adviento y Navidad -->
+                <div class="group relative rounded-3xl border border-amber-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-oroSuave text-marca-oro">
+                            <i class="fa-solid fa-star text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Adviento y Navidad</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-oro uppercase tracking-wider">Diciembre y Enero</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Es la época más mágica del año. Nos preparamos y celebramos con inmensa alegría el nacimiento de Jesús en Belén.
+                        </p>
+                    </div>
+                    <button onclick="openModal('navidad')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-oroSuave/60 px-4 py-2.5 text-sm font-bold text-marca-oro hover:bg-marca-oro hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Fiesta 2: La Cuaresma -->
+                <div class="group relative rounded-3xl border border-violet-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-purpuraSuave text-marca-purpura">
+                            <i class="fa-solid fa-hourglass-half text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">La Cuaresma</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-purpura uppercase tracking-wider">Febrero y Marzo</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Un "entrenamiento" para el corazón de 40 días haciendo buenas acciones, inspirados en el tiempo que Jesús estuvo en el desierto.
+                        </p>
+                    </div>
+                    <button onclick="openModal('cuaresma')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-purpuraSuave/60 px-4 py-2.5 text-sm font-bold text-marca-purpura hover:bg-marca-purpura hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Fiesta 3: Semana Santa -->
+                <div class="group relative rounded-3xl border border-rose-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-coralSuave text-marca-coral">
+                            <i class="fa-solid fa-cross text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Semana Santa</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-coral uppercase tracking-wider">Marzo y Abril</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Una semana súper emocionante donde recordamos la entrada de Jesús en Jerusalén, la Última Cena y su entrega en la cruz.
+                        </p>
+                    </div>
+                    <button onclick="openModal('semanasanta')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-coralSuave/60 px-4 py-2.5 text-sm font-bold text-marca-coral hover:bg-marca-coral hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Fiesta 4: Pascua de Resurrección -->
+                <div class="group relative rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-esperanzaSuave text-marca-esperanza">
+                            <i class="fa-solid fa-egg text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Pascua de Resurrección</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-esperanza uppercase tracking-wider">Domingo de Pascua</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            ¡Jesús ha resucitado! Es el día más alegre de todo el año litúrgico, celebrando que el amor y la vida siempre vencen.
+                        </p>
+                    </div>
+                    <button onclick="openModal('pascua')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-esperanzaSuave/60 px-4 py-2.5 text-sm font-bold text-marca-esperanza hover:bg-marca-esperanza hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+                <!-- Fiesta 5: Santiago Apóstol -->
+                <div class="group relative rounded-3xl border border-sky-100 bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-marca-cieloSuave text-marca-cielo">
+                            <i class="fa-solid fa-shoe-prints text-xl"></i>
+                        </div>
+                        <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Santiago Apóstol</h3>
+                        <p class="mt-2 text-xs font-bold text-marca-cielo uppercase tracking-wider">25 de Julio</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Conocemos al gran amigo de Jesús que viajó muchísimo por el mundo y que hoy es el patrón oficial de España.
+                        </p>
+                    </div>
+                    <button onclick="openModal('santiago')" class="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-marca-cieloSuave/60 px-4 py-2.5 text-sm font-bold text-marca-cielo hover:bg-marca-cielo hover:text-white transition-all">
+                        Descubrir más <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── SECCIÓN 3: LAS AUTORAS ─── -->
+    <section id="autoras" class="py-16 md:py-24 bg-white border-t border-amber-100/50">
+        <div class="mx-auto max-w-4xl px-4">
+            
+            <!-- Cabecera sobre las autoras -->
+            <div class="text-center max-w-lg mx-auto mb-12">
+                <span class="inline-flex items-center gap-1 rounded-full bg-marca-oroSuave px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-marca-oro">
+                    <i class="fa-solid fa-user-group"></i> Equipo de Trabajo
+                </span>
+                <h2 class="mt-4 text-3xl font-bold text-marca-cabecera font-kids">Conoce a las Autoras</h2>
+                <p class="mt-2 text-slate-600">Somos dos alumnas de 6.º de Primaria que nos divertimos muchísimo creando juntas.</p>
+            </div>
+
+            <!-- Grid de perfiles -->
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                
+                <!-- Perfil 1: Eva V.L. -->
+                <div class="relative overflow-hidden rounded-3xl border border-amber-100/40 bg-gradient-to-br from-marca-crema to-amber-50/30 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                    <!-- Icono/Foto de perfil ilustrativo -->
+                    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-marca-oro shadow-sm border border-amber-100">
+                        <i class="fa-solid fa-palette text-3xl"></i>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Eva V.L.</h3>
+                    <span class="mt-1 inline-block rounded-full bg-marca-oroSuave px-3 py-1 text-xs font-bold text-marca-oro uppercase">Diseño y Redacción</span>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                        "Me encanta diseñar la web, elegir los colores bonitos y escribir los textos para que se entiendan súper bien."
+                    </p>
+                </div>
+
+                <!-- Perfil 2: Sofía V.L. -->
+                <div class="relative overflow-hidden rounded-3xl border border-sky-100/40 bg-gradient-to-br from-marca-crema to-sky-50/30 p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 text-center">
+                    <!-- Icono/Foto de perfil ilustrativo -->
+                    <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-marca-cielo shadow-sm border border-sky-100">
+                        <i class="fa-solid fa-magnifying-glass text-3xl"></i>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold text-marca-cabecera font-kids">Sofía V.L.</h3>
+                    <span class="mt-1 inline-block rounded-full bg-marca-cieloSuave px-3 py-1 text-xs font-bold text-marca-cielo uppercase">Investigación y Desarrollo</span>
+                    <p class="mt-4 text-sm text-slate-600 leading-relaxed">
+                        "Me apasiona buscar la información de las fiestas y pensar en detalles interactivos para que la web sea divertida."
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ─── PIE DE PÁGINA (Footer) ─── -->
+    <footer class="mt-auto border-t border-amber-100/60 bg-marca-crema py-8">
+        <div class="mx-auto max-w-6xl px-4 text-center">
+            <p class="text-sm text-slate-500 font-kids">
+                © 2026 • Creado con ❤️ por Eva V.L. y Sofía V.L. para la clase de Religión.
+            </p>
+            <p class="mt-1.5 text-xs text-slate-400">
+                Diseñado de forma limpia y moderna con Tailwind CSS. Funciona de manera nativa en GitHub Pages.
+            </p>
+        </div>
+    </footer>
+
+
+    <!-- ─── SISTEMA DE MODAL INTERACTIVO DINÁMICO ─── -->
+    <div id="info-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+        
+        <!-- Contenedor del Modal (Escala-in) -->
+        <div id="modal-content" class="relative w-full max-w-xl rounded-3xl bg-white shadow-2xl border border-slate-100 overflow-hidden transform scale-95 transition-all duration-300">
+            
+            <!-- Barra superior coloreable -->
+            <div id="modal-header-bg" class="h-4 w-full"></div>
+
+            <!-- Botón de Cerrar flotante -->
+            <button onclick="closeModal()" class="absolute top-6 right-6 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-800 transition-colors">
+                <i class="fa-solid fa-xmark text-sm"></i>
+            </button>
+
+            <!-- Contenido del modal -->
+            <div class="p-6 md:p-8">
+                <!-- Cabecera -->
+                <div class="flex items-start gap-4">
+                    <div id="modal-icon-container" class="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-sm text-2xl">
+                        <!-- Icono dinámico -->
+                    </div>
+                    <div>
+                        <h3 id="modal-title" class="text-2xl font-bold text-marca-cabecera font-kids">
+                            <!-- Título dinámico -->
+                        </h3>
+                        <p id="modal-date" class="text-xs font-bold uppercase tracking-wider mt-1">
+                            <!-- Fecha dinámica -->
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Descripción general -->
+                <div class="mt-6 border-t border-slate-100 pt-5">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">¿Qué celebramos?</h4>
+                    <p id="modal-desc" class="mt-2 text-slate-600 leading-relaxed text-sm md:text-base">
+                        <!-- Descripción dinámica -->
+                    </p>
+                </div>
+
+                <!-- Tradición en España -->
+                <div class="mt-5 rounded-2xl bg-slate-50 p-4 border border-slate-100">
+                    <h4 class="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-500">
+                        <i class="fa-solid fa-flag text-marca-oro"></i> En España...
+                    </h4>
+                    <p id="modal-spain" class="mt-2 text-slate-600 text-sm leading-relaxed">
+                        <!-- Tradición dinámica -->
+                    </p>
+                </div>
+
+                <!-- Sección: Sabías que (Gamificación) -->
+                <div id="modal-funfact-box" class="mt-5 rounded-2xl p-4 border flex gap-3">
+                    <div class="text-lg shrink-0 pt-0.5">
+                        💡
+                    </div>
+                    <div>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">¿Sabías qué?</h4>
+                        <p id="modal-funfact" class="mt-1 text-slate-600 text-xs leading-relaxed">
+                            <!-- Dato curioso dinámico -->
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Botón de Acción Cerrar -->
+                <div class="mt-8 flex justify-end">
+                    <button onclick="closeModal()" id="modal-close-btn" class="rounded-full px-6 py-2 text-sm font-bold text-white shadow-sm hover:shadow transition-all">
+                        ¡Entendido!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ─── SCRIPT DE CONTROL E INTERACTIVIDAD (Vanilla JS) ─── -->
+    <script>
+        // --- 1. Base de datos de contenido para las Fiestas ---
+        const fiestasData = {
+            navidad: {
+                title: "Adviento y Navidad",
+                date: "Meses de Diciembre y Enero",
+                color: "oro",
+                bgHeader: "bg-amber-500",
+                bgIcon: "bg-amber-50 text-amber-600 border border-amber-100",
+                btnBg: "bg-amber-600 hover:bg-amber-700 shadow-amber-600/10",
+                icon: "<i class='fa-solid fa-star'></i>",
+                desc: "Es la época más mágica y esperada del año litúrgico. Durante el <strong>Adviento</strong> (las 4 semanas de preparación antes de la Navidad) encendemos velas y decoramos con ilusión. En <strong>Navidad</strong>, celebramos el maravilloso misterio del nacimiento del Niño Jesús en Belén, recordándonos que Dios se hizo niño por amor a nosotros.",
+                spain: "En España tenemos tradiciones hermosas: montamos belenes espectaculares en casa, cantamos villancicos tradicionales, comemos turrón y mazapán en familia y, por supuesto, esperamos la mágica cabalgata y llegada de los <strong>Reyes Magos de Oriente</strong> en la noche del 5 de enero.",
+                funfact: "En muchos rincones de España, los belenes que se organizan son gigantescos, con actores reales y animales de verdad (belenes vivientes), ¡lo que hace que parezca que viajas en el tiempo a Belén!"
+            },
+            cuaresma: {
+                title: "La Cuaresma",
+                date: "Febrero / Marzo (40 días de preparación)",
+                color: "purpura",
+                bgHeader: "bg-violet-500",
+                bgIcon: "bg-violet-50 text-violet-600 border border-violet-100",
+                btnBg: "bg-violet-600 hover:bg-violet-700 shadow-violet-600/10",
+                icon: "<i class='fa-solid fa-hourglass-half'></i>",
+                desc: "La Cuaresma es como un <strong>'entrenamiento para el corazón'</strong> que dura 40 días. Comienza el Miércoles de Ceniza y nos ayuda a prepararnos para la Pascua. Es un tiempo especial para cambiar detalles de nosotros mismos, ser mejores amigos, hacer buenas acciones y recordar los 40 días que Jesús pasó en el desierto rezando y preparándose.",
+                spain: "El color litúrgico oficial de esta fiesta en la iglesia es el <strong>morado</strong>, que significa preparación y cambio. Tradicionalmente en las familias en España, los viernes de Cuaresma no se come carne y es típico preparar platos riquísimos como potaje de vigilia y las famosas torrijas de leche y miel.",
+                funfact: "En muchas ciudades españolas existe la tradición de dibujar una figura de cartón llamada <strong>'La Vieja Cuaresma'</strong>. Tiene siete piernas que representan las siete semanas de la Cuaresma. ¡Cada domingo, los niños le cortan una pierna para contar cuántos días faltan para la Pascua!"
+            },
+            semanasanta: {
+                title: "La Semana Santa",
+                date: "Mes de Marzo / Abril (Semana previa a Pascua)",
+                color: "coral",
+                bgHeader: "bg-rose-500",
+                bgIcon: "bg-rose-50 text-rose-600 border border-rose-100",
+                btnBg: "bg-rose-600 hover:bg-rose-700 shadow-rose-600/10",
+                icon: "<i class='fa-solid fa-cross'></i>",
+                desc: "Es una de las semanas más conmovedoras e importantes. En ella recordamos los últimos días de Jesús: el <strong>Domingo de Ramos</strong> (su alegre entrada a Jerusalén montado en un burrito), el <strong>Jueves Santo</strong> (la Última Cena donde compartió el pan y el vino y nos enseñó el mandamiento del amor) y el <strong>Viernes Santo</strong> (su crucifixión y entrega total por amor).",
+                spain: "España es mundialmente famosa por su Semana Santa. Las calles se llenan de arte y emoción con las <strong>procesiones</strong>. Las cofradías portan hermosas imágenes esculpidas en madera llamadas 'pasos' al ritmo de trompetas y tambores.",
+                funfact: "Los cofrades que desfilan en las procesiones visten trajes tradicionales muy antiguos y llevan unos sombreros altos y puntiagudos llamados <strong>capirotes</strong>. Esta costumbre nació hace cientos de años como señal de penitencia y humildad."
+            },
+            pascua: {
+                title: "Pascua de Resurrección",
+                date: "Domingo de Pascua (¡El gran día!)",
+                color: "esperanza",
+                bgHeader: "bg-emerald-500",
+                bgIcon: "bg-emerald-50 text-emerald-600 border border-emerald-100",
+                btnBg: "bg-emerald-600 hover:bg-emerald-700 shadow-emerald-600/10",
+                icon: "<i class='fa-solid fa-egg'></i>",
+                desc: "¡Es el día más alegre de todo el año para los cristianos! Celebramos que <strong>Jesús ha resucitado</strong> de entre los muertos. Significa que el amor, la vida y la luz han vencido a la oscuridad y que Jesús está siempre con nosotros para darnos alegría y paz en el corazón.",
+                spain: "En España se celebra en familia con grandes comidas de Domingo de Resurrección. Es sumamente tradicional que los padrinos y madrinas regalen a sus ahijados la riquísima <strong>'Mona de Pascua'</strong>, un bollo dulce coronado con huevos decorados, o huevos de chocolate.",
+                funfact: "Los huevos son un símbolo de la Pascua porque representan la <strong>vida nueva</strong> que nace. Igual que un pollito rompe la cáscara para salir a la luz, Jesús resucitó saliendo del sepulcro para darnos vida eterna."
+            },
+            santiago: {
+                title: "Santiago Apóstol",
+                date: "25 de Julio (Patrón de España)",
+                color: "cielo",
+                bgHeader: "bg-sky-500",
+                bgIcon: "bg-sky-50 text-sky-600 border border-sky-100",
+                btnBg: "bg-sky-600 hover:bg-sky-700 shadow-sky-600/10",
+                icon: "<i class='fa-solid fa-shoe-prints'></i>",
+                desc: "Santiago el Mayor fue uno de los apóstoles y de los amigos más cercanos de Jesús. Viajó por tierra y mar hasta España para llevar el mensaje de Jesús a todas partes. Por su valentía e historia, es el **Patrón de España** y un gran ejemplo de fe y aventura.",
+                spain: "El 25 de julio es un día festivo nacional. Lo más increíble es el <strong>Camino de Santiago</strong>: millones de peregrinos de todas las edades e idiomas caminan durante semanas cruzando valles y montañas hasta llegar a la Catedral de Santiago de Compostela en Galicia, donde se conservan sus reliquias.",
+                funfact: "Los peregrinos llevan siempre atada a su mochila una <strong>concha de vieira</strong>. Esta concha es el símbolo oficial de Santiago y del Camino. Hace muchos años servía además para que los peregrinos bebieran agua en los manantiales."
+            }
+        };
+
+        // --- 2. Elementos del Modal ---
+        const modal = document.getElementById('info-modal');
+        const modalContent = document.getElementById('modal-content');
+        const modalHeaderBg = document.getElementById('modal-header-bg');
+        const modalIconContainer = document.getElementById('modal-icon-container');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDate = document.getElementById('modal-date');
+        const modalDesc = document.getElementById('modal-desc');
+        const modalSpain = document.getElementById('modal-spain');
+        const modalFunFact = document.getElementById('modal-funfact');
+        const modalFunFactBox = document.getElementById('modal-funfact-box');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        // --- 3. Funciones del Modal ---
+        function openModal(id) {
+            const data = fiestasData[id];
+            if (!data) return;
+
+            // Rellenar contenido dinámico
+            modalTitle.innerText = data.title;
+            modalDate.innerText = data.date;
+            modalDesc.innerHTML = data.desc;
+            modalSpain.innerHTML = data.spain;
+            modalFunFact.innerHTML = data.funfact;
+            modalIconContainer.innerHTML = data.icon;
+
+            // Limpiar clases previas de color del modal
+            modalHeaderBg.className = "h-4 w-full " + data.bgHeader;
+            modalIconContainer.className = "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl shadow-sm text-2xl " + data.bgIcon;
+            
+            // Asignar color según fiesta al Funfact box border
+            if (data.color === 'oro') {
+                modalFunFactBox.className = "mt-5 rounded-2xl p-4 border border-amber-100 bg-amber-50/30 flex gap-3";
+                modalCloseBtn.className = "rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all " + data.btnBg;
+                modalDate.className = "text-xs font-bold uppercase tracking-wider mt-1 text-marca-oro";
+            } else if (data.color === 'purpura') {
+                modalFunFactBox.className = "mt-5 rounded-2xl p-4 border border-violet-100 bg-violet-50/30 flex gap-3";
+                modalCloseBtn.className = "rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all " + data.btnBg;
+                modalDate.className = "text-xs font-bold uppercase tracking-wider mt-1 text-marca-purpura";
+            } else if (data.color === 'coral') {
+                modalFunFactBox.className = "mt-5 rounded-2xl p-4 border border-rose-100 bg-rose-50/30 flex gap-3";
+                modalCloseBtn.className = "rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all " + data.btnBg;
+                modalDate.className = "text-xs font-bold uppercase tracking-wider mt-1 text-marca-coral";
+            } else if (data.color === 'esperanza') {
+                modalFunFactBox.className = "mt-5 rounded-2xl p-4 border border-emerald-100 bg-emerald-50/30 flex gap-3";
+                modalCloseBtn.className = "rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all " + data.btnBg;
+                modalDate.className = "text-xs font-bold uppercase tracking-wider mt-1 text-marca-esperanza";
+            } else if (data.color === 'cielo') {
+                modalFunFactBox.className = "mt-5 rounded-2xl p-4 border border-sky-100 bg-sky-50/30 flex gap-3";
+                modalCloseBtn.className = "rounded-full px-6 py-2.5 text-sm font-bold text-white shadow-md hover:shadow-lg transition-all " + data.btnBg;
+                modalDate.className = "text-xs font-bold uppercase tracking-wider mt-1 text-marca-cielo";
+            }
+
+            // Mostrar el modal con transiciones
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+            document.body.classList.add('overflow-hidden'); // Evita scroll de fondo
+        }
+
+        function closeModal() {
+            // Ocultar modal
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modalContent.classList.remove('scale-100');
+            modalContent.classList.add('scale-95');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // Cerrar modal al hacer clic en el fondo gris translúcido
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // --- 4. Control del Menú Móvil ---
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Ocultar menú móvil al hacer clic en un enlace de navegación
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
